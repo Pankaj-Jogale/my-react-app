@@ -1,11 +1,16 @@
 function App() {
-  let username = "Pankaj"; //doing interpolation at tag lvl
-  let btvalue = "trail"; //doing interpolation at attribute lvl
+  //data member ex
+  let project = "counter appln";
+  let btnvalue = "click me";
 
+  //member funtion ex
+  let clickme = () => {
+    alert();
+  };
   return (
     <div>
-      <h1>{username}</h1>
-      <input type="button" value={btvalue} />
+      <h1>{project}</h1>
+      <input type="button" value={btnvalue} onClick={clickme} />
     </div>
   );
 }

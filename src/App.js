@@ -3,7 +3,7 @@ import { useState } from "react";
 function App() {
   //data member ex
   let project = "counter appln";
-  let [counter, setcounter] = useState(0);
+  let [counter, setcounter] = useState(0); //stateful variable
 
   //member funtion ex
   let clickme = () => {

@@ -1,5 +1,3 @@
-import "./App.css";
-
 function App() {
   //external styling
   let style = { color: "blue" };

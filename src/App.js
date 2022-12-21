@@ -1,16 +1,20 @@
+import { useState } from "react";
+
 function App() {
   //data member ex
   let project = "counter appln";
-  let btnvalue = "click me";
+  let [counter, setcounter] = useState(0);
 
   //member funtion ex
   let clickme = () => {
-    alert();
+    counter++;
+    setcounter(counter);
   };
   return (
     <div>
       <h1>{project}</h1>
-      <input type="button" value={btnvalue} onClick={clickme} />
+      <h1>{counter}</h1>
+      <input type="button" value="clickMe" onClick={clickme} />
     </div>
   );
 }

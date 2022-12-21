@@ -4,22 +4,12 @@ function App() {
   //dynamic bootstrap styling
 
   let [theme, settheme] = useState("danger");
-  let [list] = useState([1, 1, 1, 1, 1, 1, 1]);
 
-  let makeprimarytheme = () => {
-    theme = "primary";
+  let updateTheme = (p1 = "danger") => {
+    theme = p1;
     settheme(theme);
   };
 
-  let makesuccesstheme = () => {
-    theme = "success";
-    settheme(theme);
-  };
-
-  let makeinfotheme = () => {
-    theme = "info";
-    settheme(theme);
-  };
   return (
     <div>
       <div className="sticky-top">
@@ -28,31 +18,22 @@ function App() {
           className="btn btn-primary"
           type="button"
           value="makeprimarytheme"
-          onClick={makeprimarytheme}
+          onClick={() => updateTheme("primary")}
         />
         <input
           className="btn btn-success"
           type="button"
           value="makesuccesstheme"
-          onClick={makesuccesstheme}
+          onClick={() => updateTheme("success")}
         />
         <input
           className="btn btn-info"
           type="button"
           value="makeinfotheme"
-          onClick={makeinfotheme}
+          onClick={() => updateTheme("info")}
         />
       </div>
-
-      {list.map((item) => (
-        <div className={`alert alert-${theme}`}>
-          Paragraphs are the building blocks of papers. Many students define
-          paragraphs in terms of length: a paragraph is a group of at least five
-          sentences, a paragraph is half a page long, etc. In reality, though,
-          the unity and coherence of ideas among sentences is what constitutes a
-          paragraph.
-        </div>
-      ))}
+      <br />
 
       <div className={`alert alert-${theme}`}>
         <div>

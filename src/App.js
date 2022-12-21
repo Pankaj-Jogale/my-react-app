@@ -1,8 +1,10 @@
 function App() {
-  //inline styling
+  //internal styling
+  let style = { color: "blue" };
+
   return (
     <div>
-      <h1 style={{ color: "red" }}>Pankaj</h1>
+      <h1 style={style}>Pankaj</h1>
     </div>
   );
 }

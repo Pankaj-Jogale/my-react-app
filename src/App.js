@@ -1,11 +1,8 @@
 function App() {
-  let username = "Pankaj"; //doing interpolation at tag lvl
-  let btvalue = "trail"; //doing interpolation at attribute lvl
-
+  //inline styling
   return (
     <div>
-      <h1>{username}</h1>
-      <input type="button" value={btvalue} />
+      <h1 style={{ color: "red" }}>Pankaj</h1>
     </div>
   );
 }

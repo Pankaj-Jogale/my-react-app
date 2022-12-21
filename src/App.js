@@ -1,20 +1,13 @@
-import { useState } from "react";
-
 function App() {
-  //data member ex
-  let project = "counter appln";
-  let [counter, setcounter] = useState(0); //stateful variable
-
-  //member funtion ex
-  let clickme = () => {
-    counter++;
-    setcounter(counter);
-  };
+  let list = ["mumbai", "delhi", "pune"];
   return (
     <div>
-      <h1>{project}</h1>
-      <h1>{counter}</h1>
-      <input type="button" value="clickMe" onClick={clickme} />
+      <h1>map function</h1>
+      <h1>
+        {list.map((item) => (
+          <h1>{item}</h1>
+        ))}
+      </h1>
     </div>
   );
 }

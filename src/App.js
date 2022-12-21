@@ -1,10 +1,12 @@
+import "./App.css";
+
 function App() {
-  //internal styling
+  //external styling
   let style = { color: "blue" };
 
   return (
     <div>
-      <h1 style={style}>Pankaj</h1>
+      <h1 className="beautify">Pankaj</h1>
     </div>
   );
 }

@@ -1,10 +1,9 @@
 function App() {
-  //external styling
-  let style = { color: "blue" };
+  //bootstrap styling
 
   return (
     <div>
-      <h1 className="beautify">Pankaj</h1>
+      <h1 className="bg-success">Pankaj</h1>
     </div>
   );
 }

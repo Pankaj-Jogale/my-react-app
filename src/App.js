@@ -1,11 +1,13 @@
-import { useState } from "react";
-
 function App() {
   //passing event parameter from btn
 
+  let clickme = (e) => {
+    console.log(e);
+  };
   return (
     <div>
-      <input type="button" value="clickme" onClick={} />
+      <br />
+      <input type="button" value="clickme" onClick={clickme} />
     </div>
   );
 }

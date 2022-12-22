@@ -1,14 +1,20 @@
 import { useState } from "react";
 
 function App() {
-  //msg app using map function+btn
-
+  //msg app using map function+btn+txtbox
+  let [message, setmessage] = useState("hii");
   let [list, setList] = useState([
     { message: "Hi", messageTime: new Date() },
     { message: "hello", messageTime: new Date() },
   ]);
+
+  let updateinputmsg = (e) => {
+    message = e.target.value;
+    setmessage(message);
+  };
+
   let addmsg = () => {
-    let newmsg = { message: "what happen??", messageTime: new Date() };
+    let newmsg = { message: message, messageTime: new Date() };
     list = [newmsg, ...list];
     setList(list);
   };
@@ -16,6 +22,7 @@ function App() {
   return (
     <div>
       <h1>map demo</h1>
+      <input type="text" name={message} id="" onChange={updateinputmsg} />
       <input type="button" value="add msg" onClick={addmsg} />
       {list.map((item, index) => (
         <div key={index}>

@@ -11,8 +11,8 @@ function App() {
   return (
     <div>
       <h1>map demo</h1>
-      {list.map((item) => (
-        <div>
+      {list.map((item, index) => (
+        <div key={index}>
           <div>
             {item.message}
             <span>

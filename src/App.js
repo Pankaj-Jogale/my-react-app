@@ -1,23 +1,16 @@
 import { useState } from "react";
 
 function App() {
-  //accessing txtbox i/p
+  //map function
 
-  let [message, setMessage] = useState("Hello");
-  let updateMsg = (e) => {
-    message = e.target.value;
-    setMessage(message);
-    console.log(e);
-  };
+  let [list] = useState(["Hello", "hii", "chennai", "delhi"]);
+
   return (
     <div>
-      <input
-        type="text"
-        value={message}
-        placeholder="enter msg"
-        onChange={updateMsg}
-      />
-      <h1>{message}</h1>
+      <h1>map demo</h1>
+      {list.map((item) => (
+        <div>{item}</div>
+      ))}
     </div>
   );
 }

@@ -1,25 +1,23 @@
 import { useState } from "react";
 
 function App() {
-  //passing event+custom parameter from btn
+  //accessing txtbox i/p
 
-  let [theme, settheme] = useState("primary");
-  let clickme = (e, p1) => {
-    theme = p1;
-    settheme(theme);
-    console.log(p1);
-    //event para in console
+  let [message, setMessage] = useState("Hello");
+  let updateMsg = (e) => {
+    message = e.target.value;
+    setMessage(message);
     console.log(e);
   };
   return (
     <div>
-      {/* comment in tag*/}
-      <h1 className={`bg-${theme} text-light p-2`}>hi</h1>
       <input
-        type="button"
-        value="clickme"
-        onClick={(e) => clickme(e, "danger")}
+        type="text"
+        value={message}
+        placeholder="enter msg"
+        onChange={updateMsg}
       />
+      <h1>{message}</h1>
     </div>
   );
 }

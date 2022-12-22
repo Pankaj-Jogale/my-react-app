@@ -1,11 +1,18 @@
 import { useState } from "react";
 
 function App() {
-  //passing event parameter from btn
+  //passing custom parameter from btn
 
+  let [theme, settheme] = useState("primary");
+  let clickme = (p1) => {
+    theme = p1;
+    settheme(theme);
+    console.log(p1);
+  };
   return (
     <div>
-      <input type="button" value="clickme" onClick={} />
+      <h1 className={`bg-${theme} text-light p-2`}>hi</h1>
+      <input type="button" value="clickme" onClick={() => clickme("danger")} />
     </div>
   );
 }

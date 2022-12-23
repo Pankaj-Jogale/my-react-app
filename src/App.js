@@ -1,52 +1,23 @@
+import axios from "axios";
 import { useState } from "react";
 
 function App() {
-  //msg app using map function+btn+txtbox
-  let [message, setmessage] = useState("hii");
-  let [list, setList] = useState([
-    { message: "Hi", messageTime: new Date() },
-    { message: "hello", messageTime: new Date() },
-  ]);
-
-  let updateinputmsg = (e) => {
-    message = e.target.value;
-    setmessage(message);
+  let [messageList, setMessageList] = useState([]);
+  let getallmsg = async () => {
+    let url = `http://localhost:3001/messages`;
+    let response = await axios.get(url);
+    //console.log(response.data);
+    messageList = [...response.data];
+    //console.log(messageList);
+    //re-render
+    setMessageList(messageList);
   };
-
-  let addmsg = () => {
-    let newmsg = { message: message, messageTime: new Date() };
-    list = [newmsg, ...list];
-    setList(list);
-  };
-
   return (
     <div>
-      <h1 className="bg-primary text-light p-3">map demo</h1>
-      <div className="d-flex">
-        <input
-          className="form-control"
-          type="text"
-          name={message}
-          id=""
-          onChange={updateinputmsg}
-        />
-        <input
-          className="btn btn-info"
-          type="button"
-          value="add msg"
-          onClick={addmsg}
-        />
-      </div>
-
-      {list.map((item, index) => (
-        <div key={index}>
-          <div>
-            {item.message}
-            <span>
-              {item.messageTime.getHours()}:{item.messageTime.getMinutes()}
-            </span>
-          </div>
-        </div>
+      <h1>Make ajax/api call</h1>
+      <input type="button" value="Make ajax/api call" onClick={getallmsg} />
+      {messageList.map((item) => (
+        <div>{item.message}</div>
       ))}
     </div>
   );

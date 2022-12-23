@@ -21,9 +21,23 @@ function App() {
 
   return (
     <div>
-      <h1>map demo</h1>
-      <input type="text" name={message} id="" onChange={updateinputmsg} />
-      <input type="button" value="add msg" onClick={addmsg} />
+      <h1 className="bg-primary text-light p-3">map demo</h1>
+      <div className="d-flex">
+        <input
+          className="form-control"
+          type="text"
+          name={message}
+          id=""
+          onChange={updateinputmsg}
+        />
+        <input
+          className="btn btn-info"
+          type="button"
+          value="add msg"
+          onClick={addmsg}
+        />
+      </div>
+
       {list.map((item, index) => (
         <div key={index}>
           <div>

@@ -17,12 +17,13 @@ function App() {
     //console.log(messageList);
     //re-render
     setMessageList(messageList);
+    getallmsg();
   };
 
   let createnewmsg = async () => {
     let url = `http://localhost:3001/message`;
     let data = {
-      message: "Hi from react",
+      message: "Hi from react2",
       reply: false,
     };
     await axios.post(url, data);

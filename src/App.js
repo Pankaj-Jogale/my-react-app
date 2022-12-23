@@ -1,8 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
+//getting msg from database on every refresh
 function App() {
-  //Make ajax/api post call
+  useEffect(() => {
+    //console.log("i am called");
+    getallmsg();
+  }, []);
+
   let [messageList, setMessageList] = useState([]);
   let getallmsg = async () => {
     let url = `http://localhost:3001/messages`;
@@ -31,9 +36,9 @@ function App() {
         value="Make ajax/api post call"
         onClick={createnewmsg}
       />
-      {messageList.map((item) => (
+      {messageList.map((item, index) => (
         <>
-          <div>{item.message}</div>
+          <div key={index}>{item.message}</div>
         </>
       ))}
     </div>

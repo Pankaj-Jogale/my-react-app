@@ -41,7 +41,7 @@ function App() {
       return;
     } else {
       let box = inputRef.current;
-      box.style.border = "inherit";
+      box.style.border = "2px solid black";
     }
     let data = {
       message: message,

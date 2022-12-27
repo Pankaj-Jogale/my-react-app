@@ -1,4 +1,10 @@
+import AppBody from "./AppBody";
+//as both are in same folder
 function Home() {
-  return <h1>I am Home</h1>;
+  return (
+    <div>
+      <AppBody />
+    </div>
+  );
 }
 export default Home;

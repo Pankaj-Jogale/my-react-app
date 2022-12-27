@@ -1,12 +1,21 @@
 import { Route, Routes } from "react-router-dom";
+import AppNavLinks from "./components/AppNavLinks";
+import Explore from "./components/Explore";
+import Home from "./components/Home";
+import Notification from "./components/Notification";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<h1>Hello</h1>} />
-      <Route path="/explore" element={<h1>Explore</h1>} />
-      <Route path="*" element={<h1>Page Not Found</h1>} />
-    </Routes>
+    <div>
+      <AppNavLinks />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/notification" element={<Notification />} />
+        <Route path="*" element={<h1>Page Not Found</h1>} />
+      </Routes>
+    </div>
   );
 }
 

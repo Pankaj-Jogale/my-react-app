@@ -1,22 +1,32 @@
-import { Route, Routes } from "react-router-dom";
-import AppNavLinks from "./components/AppNavLinks";
-import Explore from "./components/Explore";
-import Home from "./components/Home";
-import Notification from "./components/Notification";
+import { useState } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+
+//error-boundary changes only in these file creating error so that we can try error boundary
+//erroe-trying to access object directly
 
 function App() {
   return (
-    <div>
-      <AppNavLinks />
+    <ErrorBoundary FallbackComponent={HandleError}>
+      <Error />
+    </ErrorBoundary>
+  );
+}
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/notification" element={<Notification />} />
-        <Route path="*" element={<h1>Page Not Found</h1>} />
-      </Routes>
+function HandleError({ error }) {
+  console.log("These is error:", error);
+  return (
+    <div>
+      <h1>Error occured</h1>
     </div>
   );
 }
 
+function Error() {
+  let [user] = useState({ id: 1, name: "Pankaj" });
+  return (
+    <div>
+      <h1>{user}</h1>
+    </div>
+  );
+}
 export default App;

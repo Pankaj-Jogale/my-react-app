@@ -1,32 +1,42 @@
 import { useState } from "react";
-import { ErrorBoundary } from "react-error-boundary";
 
-//error-boundary changes only in these file creating error so that we can try error boundary
-//erroe-trying to access object directly
+//created 2 counter bt then not link to each other like bank counter to share user bank balance
 
 function App() {
   return (
-    <ErrorBoundary FallbackComponent={HandleError}>
-      <Error />
-    </ErrorBoundary>
-  );
-}
-
-function HandleError({ error }) {
-  console.log("These is error:", error);
-  return (
     <div>
-      <h1>Error occured</h1>
+      <Counter1 />
+      <Counter2 />
     </div>
   );
 }
 
-function Error() {
-  let [user] = useState({ id: 1, name: "Pankaj" });
+function Counter1() {
+  let [amount, setAmount] = useState(100);
+  let deposit = () => {
+    amount += 50;
+    setAmount(amount);
+  };
   return (
     <div>
-      <h1>{user}</h1>
+      <h1>Counter 1 amount:{amount}</h1>
+      <input type="button" value="Deposit" onClick={deposit} />
     </div>
   );
 }
+
+function Counter2() {
+  let [amount, setAmount] = useState(100);
+  let deposit = () => {
+    amount += 50;
+    setAmount(amount);
+  };
+  return (
+    <div>
+      <h1>Counter 2 amount:{amount}</h1>
+      <input type="button" value="Deposit" onClick={deposit} />
+    </div>
+  );
+}
+
 export default App;

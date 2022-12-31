@@ -1,6 +1,5 @@
-import { useState } from "react";
-
-//created 2 counter bt then not link to each other like bank counter to share user bank balance
+import { useSelector, useDispatch } from "react-redux";
+import { deposit, withdraw } from "./redux/store";
 
 function App() {
   return (
@@ -12,29 +11,42 @@ function App() {
 }
 
 function Counter1() {
-  let [amount, setAmount] = useState(100);
-  let deposit = () => {
-    amount += 50;
-    setAmount(amount);
-  };
+  let dispatch = useDispatch();
+  //console.log(dispatch);
+  //let allstate = useSelector((state) => state);
+  //console.log(allstate.userAccount.amount);
+
+  let { userAccount } = useSelector((state) => state);
+
   return (
     <div>
-      <h1>Counter 1 amount:{amount}</h1>
-      <input type="button" value="Deposit" onClick={deposit} />
+      <h1>Counter 1 amount:{userAccount.amount}</h1>
+      <input
+        type="button"
+        value="Deposit"
+        onClick={() => dispatch(deposit())}
+      />
     </div>
   );
 }
 
 function Counter2() {
-  let [amount, setAmount] = useState(100);
-  let deposit = () => {
-    amount += 50;
-    setAmount(amount);
-  };
+  let dispatch = useDispatch();
+  let { userAccount } = useSelector((state) => state);
+
   return (
     <div>
-      <h1>Counter 2 amount:{amount}</h1>
-      <input type="button" value="Deposit" onClick={deposit} />
+      <h1>Counter 2 amount:{userAccount.amount}</h1>
+      <input
+        type="button"
+        value="Deposit"
+        onClick={() => dispatch(deposit())}
+      />
+      <input
+        type="button"
+        value="withdraw"
+        onClick={() => dispatch(withdraw())}
+      />
     </div>
   );
 }

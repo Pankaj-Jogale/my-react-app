@@ -4,18 +4,18 @@ let userAccountSlice = createSlice({
   name: "userAccount",
 
   initialState: {
-    amount: 100,
+    amount: 0,
     userName: "rohit",
   },
 
   //member function/reducer function
   reducers: {
-    deposit: (state) => {
-      state.amount += 100;
+    deposit: (state, action) => {
+      state.amount += action.payload;
     },
 
-    withdraw: (state) => {
-      state.amount -= 50;
+    withdraw: (state, action) => {
+      state.amount -= action.payload;
     },
   },
 });

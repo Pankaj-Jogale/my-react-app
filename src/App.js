@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import { deposit, withdraw } from "./redux/store";
 
+//passing parameter while calling function
+
 function App() {
   return (
     <div>
@@ -24,8 +26,8 @@ function Counter1() {
       <h1>Counter 1 amount:{userAccount.amount}</h1>
       <input
         type="button"
-        value="Deposit"
-        onClick={() => dispatch(deposit())}
+        value="Deposit-200"
+        onClick={() => dispatch(deposit(200))}
       />
     </div>
   );
@@ -40,13 +42,13 @@ function Counter2() {
       <h1>Counter 2 amount:{userAccount.amount}</h1>
       <input
         type="button"
-        value="Deposit"
-        onClick={() => dispatch(deposit())}
+        value="Deposit-100"
+        onClick={() => dispatch(deposit(100))}
       />
       <input
         type="button"
-        value="withdraw"
-        onClick={() => dispatch(withdraw())}
+        value="withdraw-100"
+        onClick={() => dispatch(withdraw(100))}
       />
     </div>
   );

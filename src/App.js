@@ -5,6 +5,7 @@ function App() {
   return (
     <div>
       <Counter1 />
+      <hr />
       <Counter2 />
     </div>
   );

@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 const Register = (props) => {
@@ -7,9 +8,19 @@ const Register = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
-    console.log(pass);
-    console.log(name);
+  };
+
+  let createnewdeatails = async () => {
+    let url = `http://localhost:3001/register`; //need to add in backend
+
+    let data = {
+      name: name,
+      email: email,
+      pass: pass,
+    };
+
+    await axios.post(url, data);
+    props.onFormSwitch("login");
   };
   return (
     <div className="auth-form-container">
@@ -39,7 +50,9 @@ const Register = (props) => {
           name="password"
           id="password"
         />
-        <button type="submit">Log in</button>
+        <button onClick={() => createnewdeatails()} type="submit">
+          Register
+        </button>
       </form>
 
       <button className="link-btn" onClick={() => props.onFormSwitch("login")}>

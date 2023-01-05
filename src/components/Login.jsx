@@ -19,7 +19,7 @@ const Login = (props) => {
     list.map((item) => {
       //console.log(item.uname);
       if (item.email === email && item.upass === pass) {
-        console.log("hello");
+        console.log("Login Success");
       }
     });
   };
@@ -44,6 +44,7 @@ const Login = (props) => {
           name="password"
           id="password"
         />
+
         <button onClick={() => logindeatails()} type="submit">
           Log in
         </button>

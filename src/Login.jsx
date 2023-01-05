@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import Menu from "./Menu";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -20,6 +21,7 @@ const Login = (props) => {
       //console.log(item.uname);
       if (item.email === email && item.upass === pass) {
         console.log("hello");
+        <Menu />;
       }
     });
   };

@@ -9,6 +9,7 @@ function App() {
   const toggleForm = (forName) => {
     setCurrentForm(forName);
   };
+
   return (
     <div className="App">
       {currentForm === "login" ? (

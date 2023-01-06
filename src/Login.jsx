@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -7,7 +8,13 @@ const Login = (props) => {
   let [list, setList] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    //console.log(email);
+    console.log(email);
+  };
+
+  const navigate = useNavigate();
+  const navigateToMenu = () => {
+    // 👇️ navigate to /contacts
+    navigate("/menu");
   };
 
   let logindeatails = async () => {
@@ -20,10 +27,14 @@ const Login = (props) => {
       //console.log(item.uname);
       if (item.email === email && item.upass === pass) {
         console.log("hello");
+        navigateToMenu();
       }
     });
   };
 
+  const Home = () => {
+    return <h2>Home</h2>;
+  };
   return (
     <div className="auth-form-container">
       <h2>Login</h2>
@@ -55,6 +66,9 @@ const Login = (props) => {
       >
         Register here
       </button>
+      <Routes>
+        <Route path="/menu" element={<Home />} />
+      </Routes>
     </div>
   );
 };

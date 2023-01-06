@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Register = (props) => {
   const [email, setEmail] = useState("");
@@ -34,7 +35,7 @@ const Register = (props) => {
           type="text"
           onChange={(e) => setName(e.target.value)}
         />
-        <label htmlFor="email">email</label>
+        <label htmlFor="email">Email</label>
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -42,7 +43,7 @@ const Register = (props) => {
           name="email"
           id="email"
         />
-        <label htmlFor="password">password</label>
+        <label htmlFor="password">Password</label>
         <input
           value={pass}
           onChange={(e) => setPass(e.target.value)}
@@ -50,14 +51,22 @@ const Register = (props) => {
           name="password"
           id="password"
         />
-        <button onClick={() => createnewdeatails()} type="submit">
+        <br />
+        <br />
+
+        <button
+          className="btn btn-primary"
+          onClick={() => createnewdeatails()}
+          type="submit"
+        >
           Register
         </button>
       </form>
-
-      <button className="link-btn" onClick={() => props.onFormSwitch("login")}>
-        have account? login here
-      </button>
+      <li className="ul">
+        <Link className="nav-link" to="/login">
+          Already have an account? login here.
+        </Link>
+      </li>
     </div>
   );
 };

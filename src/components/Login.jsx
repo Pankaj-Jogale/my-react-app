@@ -1,5 +1,7 @@
+import "./App.css";
 import axios from "axios";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -7,7 +9,7 @@ const Login = (props) => {
   let [list, setList] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    //console.log(email);
+    return <redirect to="/menu" />;
   };
 
   let logindeatails = async () => {
@@ -20,15 +22,17 @@ const Login = (props) => {
       //console.log(item.uname);
       if (item.email === email && item.upass === pass) {
         console.log("hello");
+        window.location.href = "/menu";
       }
     });
   };
 
   return (
     <div className="auth-form-container">
-      <h2>Login</h2>
       <form className="login-form" onSubmit={handleSubmit}>
-        <label htmlFor="email">email</label>
+        <h2>Login</h2>
+        <br />
+        <label htmlFor="email">Email</label>
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -36,7 +40,7 @@ const Login = (props) => {
           name="email"
           id="email"
         />
-        <label htmlFor="password">password</label>
+        <label htmlFor="password">Password</label>
         <input
           value={pass}
           onChange={(e) => setPass(e.target.value)}
@@ -44,17 +48,21 @@ const Login = (props) => {
           name="password"
           id="password"
         />
-        <button onClick={() => logindeatails()} type="submit">
+        <br />
+        <button
+          className="btn btn-primary"
+          onClick={() => logindeatails()}
+          type="submit"
+        >
           Log in
         </button>
       </form>
 
-      <button
-        className="link-btn"
-        onClick={() => props.onFormSwitch("register")}
-      >
-        Register here
-      </button>
+      <li className="ul">
+        <Link className="nav-link" to="/register">
+          Register
+        </Link>
+      </li>
     </div>
   );
 };

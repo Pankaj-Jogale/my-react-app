@@ -1,5 +1,9 @@
-let Home = () => {
-  return <div className="home-pg">Hello user u have successfully logg-in</div>;
-};
+function Home() {
+  return (
+    <div className="home-pg">
+      <h1>Simple Home Page</h1>
+    </div>
+  );
+}
 
 export default Home;

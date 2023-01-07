@@ -14,12 +14,13 @@
 }
 .home-pg {
   background-image: linear-gradient(79deg, #7439db, #c66fbc 48%, #f7944d);
-  min-height: 100vh;
+  height: 100vh;
 
   display: flex;
   flex-direction: column;
   align-content: center;
   text-align: center;
+  justify-content: center;
 }
 .auth-form-container {
   min-height: 92vh;

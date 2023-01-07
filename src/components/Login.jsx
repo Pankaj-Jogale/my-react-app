@@ -1,7 +1,7 @@
 import "./App.css";
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -9,7 +9,6 @@ const Login = (props) => {
   let [list, setList] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    return <redirect to="/menu" />;
   };
 
   let logindeatails = async () => {
@@ -22,14 +21,29 @@ const Login = (props) => {
       //console.log(item.uname);
       if (item.email === email && item.upass === pass) {
         console.log("hello");
-        window.location.href = "/menu";
+        let data = {
+          userloggedIn: true,
+        };
+        localStorage.setItem("data", JSON.stringify(data));
+
+        window.location.href = "http://localhost:3000/user/redirect";
       }
     });
   };
 
+  /*const loginUser = async (e) => {
+    e.preventDefault();
+    const res = await fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type"
+      },
+    });
+  };
+  */
   return (
     <div className="auth-form-container">
-      <form className="login-form" onSubmit={handleSubmit}>
+      <form method="POST" className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
         <br />
         <label htmlFor="email">Email</label>

@@ -1,5 +1,6 @@
-import { useState } from "react";
-function Menu() {
+import { useState, React } from "react";
+
+const Menu = () => {
   let [list] = useState([{}, {}, {}, {}, {}, {}, {}, {}]);
   return (
     <div className="row " style={{ width: "100%", height: "auto" }}>
@@ -26,6 +27,6 @@ function Menu() {
       ))}
     </div>
   );
-}
+};
 
 export default Menu;

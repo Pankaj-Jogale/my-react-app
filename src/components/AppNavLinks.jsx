@@ -5,7 +5,7 @@ function AppNavLinks() {
     <nav className="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
       <div className="container-fluid ">
         <Link className="navbar-brand" to="#">
-          Student Portal
+          Shopping Portal
         </Link>
         <button
           className="navbar-toggler"
@@ -25,6 +25,7 @@ function AppNavLinks() {
                 Home
               </Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/login">
                 Login

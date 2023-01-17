@@ -7,6 +7,8 @@ const Register = (props) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [name, setName] = useState("");
+  const [error, setError] = useState("");
+  let [list, setList] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,13 +17,37 @@ const Register = (props) => {
   let createnewdeatails = async () => {
     let url = `http://localhost:3001/register`; //need to add in backend
 
+    /*
+    let url2 = `http://localhost:3001/login`;
+    let response = await axios.get(url2);
+    list = [...response.data];
+    setList(list);
+    list.map((item) => {
+      //console.log(item.uname);
+      if (item.email === email) {
+        console.log("account already available");
+        return;
+      }
+    });*/
     let data = {
       name: name,
       email: email,
       pass: pass,
     };
 
-    await axios.post(url, data);
+    if (name === "" || email === "" || pass === "") {
+      setError("Please fill all the details");
+
+      return;
+    } else {
+      setError("");
+    }
+
+    let ans = await axios.post(url, data);
+    console.log(ans.status);
+    if (ans.status) {
+      setError("Account created successfully");
+    }
     props.onFormSwitch("login");
   };
   return (
@@ -62,6 +88,7 @@ const Register = (props) => {
         >
           Register
         </button>
+        <p className="error">{error}</p>
       </form>
       <li className="ul">
         <Link className="nav-link" to="/login">

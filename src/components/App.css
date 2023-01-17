@@ -52,7 +52,10 @@ input {
   border: none;
   border-radius: 10px;
 }
-
+.error {
+  background-color: rgb(0, 0, 0);
+  margin-top: 4px;
+}
 button {
   border: none;
   background-color: rgb(0, 0, 0);

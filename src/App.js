@@ -5,6 +5,8 @@ import Menu from "./components/Menu";
 import Home from "./components/Home";
 import UserDashboard from "./components/UserDashboard";
 import Privateroute from "./components/Privateroute";
+import Users from "./components/Users";
+import Video from "./components/Video";
 
 import AppNavLinks from "./components/AppNavLinks";
 import Redirect from "./components/Redirect";
@@ -18,6 +20,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/video" element={<Video />} />
 
         <Route path="/user" element={<Privateroute />}>
           <Route path="menu" element={<Menu />} />

@@ -1,0 +1,15 @@
+footer,
+.push {
+  height: 100px;
+}
+
+main {
+  min-height: 90vh;
+  margin-bottom: -90px;
+}
+footer {
+  background-color: rgb(77, 232, 147);
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}

@@ -1,0 +1,21 @@
+.container {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  background-color: purple;
+}
+.content {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  background-color: yellow;
+  max-height: 100%;
+  max-width: 100%;
+  overflow-y: scroll;
+}

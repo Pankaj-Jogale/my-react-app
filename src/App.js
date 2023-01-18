@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import "./style.css";
 import { useEffect, useRef, useState } from "react";
 
 //taking i/p from textbox
@@ -43,67 +43,83 @@ function App() {
     await axios.post(url, data);
     setmessage("");
     getallmsg();
+    window.scrollTo(5, document.body.scrollHeight);
   };
   let checkenter = (e) => {
     if (e.keyCode === 13) {
-      createnewmsg();
+      createnewmsg(false);
     }
   };
 
   return (
-    <div>
-      <h1 className="bg-dark text-light sticky-top p-2">Message App</h1>
-      <div className="row justify-content-center">
-        <div className="col-12 col-md-6">
-          <div className="d-flex ">
-            <input
-              className="form-control form-control-lg"
-              type="text"
-              value={message}
-              onChange={changemsg}
-              onKeyUp={checkenter}
-              ref={inputRef}
-              required
-              minLength={3}
-            />
-            <input
-              className="btn btn-secondary"
-              type="button"
-              value="add"
-              onClick={() => createnewmsg(false)}
-            />
-            <input
-              className="btn btn-dark"
-              type="button"
-              value="Reply"
-              onClick={() => createnewmsg(true)}
-            />
+    <div style={{ "background-color": "rgb(211, 211, 211)" }}>
+      <p className="bg-success text-light sticky-top p-2 mb-0 ">
+        &#9664; <i className="fa fa-user blue-color ms-2 me-2"></i>
+        Pankaj Jogale
+      </p>
+
+      <main style={{ "background-color": "rgb(211, 211, 211)" }}>
+        <div>
+          {messageList.map((item, index) => (
+            <div className="row justify-content-center ms-2 me-2">
+              <div
+                style={{ "background-color": "rgb(227, 219, 180)" }}
+                className="col-12 col-md-6 border-4 border-dark "
+              >
+                <div
+                  key={index}
+                  className={
+                    item.reply
+                      ? "d-flex justify-content-end my-1"
+                      : "d-flex justify-content-start my-1"
+                  }
+                >
+                  <div className="badge text-bg-light">
+                    {item.message}
+                    <span className="ms-4">
+                      {new Date(item.messageTime).getHours()}:
+                      {new Date(item.messageTime).getMinutes()}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+          <div className="row justify-content-center ms-2  me-2">
+            <div className="col-12 col-md-6 border-4 border-dark push mb-4"></div>
           </div>
         </div>
-      </div>
 
-      {messageList.map((item, index) => (
-        <div className="row justify-content-center border-4">
-          <div className="col-12 col-md-6 border-4 border-dark">
-            <div
-              key={index}
-              className={
-                item.reply
-                  ? "d-flex justify-content-end my-1"
-                  : "d-flex justify-content-start my-1"
-              }
-            >
-              <div className="badge text-bg-secondary">
-                {item.message}
-                <span className="ms-4">
-                  {new Date(item.messageTime).getHours()}:
-                  {new Date(item.messageTime).getMinutes()}
-                </span>
+        <footer>
+          <div className="row justify-content-center ">
+            <div className="col-12 col-md-6 ">
+              <div className="d-flex ">
+                <input
+                  className="form-control form-control-sm "
+                  type="text"
+                  value={message}
+                  placeholder="Type a message"
+                  onChange={changemsg}
+                  onKeyUp={checkenter}
+                  ref={inputRef}
+                  required
+                  minLength={3}
+                />
+                <button onClick={() => createnewmsg(false)}>
+                  <i className="material-icons mt-1">send</i>
+                </button>
+
+                <input
+                  className="btn btn-dark btn-sm"
+                  type="button"
+                  value="Reply"
+                  onClick={() => createnewmsg(true)}
+                />
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        </footer>
+      </main>
     </div>
   );
 }

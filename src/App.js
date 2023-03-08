@@ -8,10 +8,11 @@ import Privateroute from "./components/Privateroute";
 
 import AppNavLinks from "./components/AppNavLinks";
 import Redirect from "./components/Redirect";
-
+import { ErrorBoundary } from "react-error-boundary";
 function App() {
   return (
     <div>
+      <ErrorBoundary FallbackComponent={HandleError} />
       <AppNavLinks />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -24,8 +25,16 @@ function App() {
           <Route path="redirect" element={<Redirect />} />
         </Route>
       </Routes>
+      <ErrorBoundary />
     </div>
   );
 }
 
+function HandleError() {
+  return (
+    <div>
+      <h1>error occured</h1>
+    </div>
+  );
+}
 export default App;

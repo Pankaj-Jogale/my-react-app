@@ -1,19 +1,33 @@
 import { Route, Routes } from "react-router-dom";
+import About from "./components/About";
 import AppNavLinks from "./components/AppNavLinks";
-import Explore from "./components/Explore";
-import Home from "./components/Home";
-import Notification from "./components/Notification";
+import Contact from "./components/Contact";
+import Home1 from "./components/Home1";
+import React from "react";
+import Project from "./components/Project";
+import Resume from "./components/Resume";
+import Skills from "./components/Skills";
 
 function App() {
   return (
     <div>
       <AppNavLinks />
-
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/notification" element={<Notification />} />
-        <Route path="*" element={<h1>Page Not Found</h1>} />
+        <Route path="/" element={<Home1 />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/skills" element={<Skills />} />
+        <Route path="/project" element={<Project />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/resume" element={<Resume />} />
+
+        <Route
+          path="*"
+          element={
+            <h1 style={{ color: "black", marginLeft: "38%", marginTop: "20%" }}>
+              Page Not Found
+            </h1>
+          }
+        />
       </Routes>
     </div>
   );

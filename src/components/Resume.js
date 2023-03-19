@@ -6,6 +6,7 @@ import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import "./skills.scss";
+import bg from "../assets/home-bg.jpg";
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const resumeLink = `https://raw.githubusercontent.com/Pankaj-Jogale/my-react-app/final-portfolio/src/components/Jobresume.pdf`;
@@ -18,7 +19,18 @@ const Resume1 = () => {
   }, []);
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage: `url(${bg})`,
+        width: "100%",
+        minHeight: "93vh",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <Container fluid className="resume-section">
         <Row style={{ justifyContent: "center", position: "relative" }}>
           <Button

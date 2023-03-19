@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import About from "./components/About";
 import AppNavLinks from "./components/AppNavLinks";
 import Contact from "./components/Contact";
 import Home1 from "./components/Home1";
@@ -13,7 +12,6 @@ function App() {
       <AppNavLinks />
       <Routes>
         <Route path="/" element={<Home1 />} />
-        <Route path="/about" element={<About />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/resume" element={<Resume />} />

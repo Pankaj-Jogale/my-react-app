@@ -55,6 +55,7 @@ function Home1() {
               <b className="yellow"> React.js</b>
             </i>
             <br />
+            <br />
             <i>
               I am also interested in exploring areas related to
               <b className="yellow"> Artificial Intelligence.</b>

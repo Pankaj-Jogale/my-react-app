@@ -4,7 +4,6 @@ import AppNavLinks from "./components/AppNavLinks";
 import Contact from "./components/Contact";
 import Home1 from "./components/Home1";
 import React from "react";
-import Project from "./components/Project";
 import Resume from "./components/Resume";
 import Skills from "./components/Skills";
 
@@ -16,9 +15,7 @@ function App() {
         <Route path="/" element={<Home1 />} />
         <Route path="/about" element={<About />} />
         <Route path="/skills" element={<Skills />} />
-        <Route path="/project" element={<Project />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/resume" element={<Resume />} />
         <Route path="/resume" element={<Resume />} />
 
         <Route

@@ -3,14 +3,6 @@ import homebg from "../assets/home-bg.jpg";
 const Project = () => {
   return (
     <div className="project">
-      {/* <h1>Social Media App</h1>
-      <div className="first1">
-        <img src={homebg} alt="" />
-        <img src={homebg} alt="" />
-        <img src={homebg} alt="" />
-        <img src={homebg} alt="" />
-        <p>about</p>
-      </div> */}
       <div className="cards">
         <div className="left">
           <h1>Social Media App</h1>

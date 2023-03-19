@@ -58,17 +58,6 @@ function AppNavLinks() {
                 Contact Me
               </Link>
             </li>
-            {/* <li className="nav-item">
-              <a
-                className="nav-link"
-                href="https://www.linkedin.com/in/pankaj-jogale-8780791a7"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsNavOpen(false)}
-              >
-                LinkedIn
-              </a>
-            </li> */}
           </ul>
         </div>
       </div>

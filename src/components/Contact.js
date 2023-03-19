@@ -22,10 +22,8 @@ const Contact = () => {
         (result) => {
           e.target.reset();
           if (result.status === 200 && result.text === "OK") {
-            // alert("Message submitted successfully!");
             setMessage("Message submitted successfully!");
           } else {
-            // alert("Error submitting message. Please try again later.");
             setMessage("Error submitting message. Please try again later.");
           }
         },
@@ -79,7 +77,6 @@ const Contact = () => {
           Submit
         </button>
         {message && <h3 className="error">{message}</h3>}
-        {/* <button type="submit">Submit</button> */}
       </form>
       <div className="connect-with-me">
         <h2>Connect</h2>

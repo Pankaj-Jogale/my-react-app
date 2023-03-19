@@ -1,13 +1,43 @@
-import "./resume.scss";
-import React, { Component } from "react";
-import pdfFile from "./Jobresume.pdf";
-export default function Resume() {
+import { Container, Row } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import pdf from "./Jobresume.pdf";
+import React, { useState, useEffect } from "react";
+import { Document, Page, pdfjs } from "react-pdf";
+import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import "react-pdf/dist/esm/Page/TextLayer.css";
+pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
+const resumeLink = `https://raw.githubusercontent.com/Pankaj-Jogale/my-react-app/new-portfolio/src/components/Jobresume.pdf`;
+
+const Resume1 = () => {
+  const [width, setWidth] = useState(1200);
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  }, []);
+
   return (
-    <div className="front">
-      <h1>Resume</h1>
-      <a href={pdfFile} target="_blank">
-        <button>View & Download Pdf</button>
-      </a>
+    <div>
+      <Container fluid className="resume-section">
+        <Row style={{ justifyContent: "center", position: "relative" }}>
+          <Button
+            variant="primary"
+            href={pdf}
+            target="_blank"
+            style={{ maxWidth: "250px", marginTop: "20px", marginLeft: "25px" }}
+          >
+            &nbsp;Download Resume
+          </Button>
+        </Row>
+
+        <Row className="resume">
+          <Document file={resumeLink} className="d-flex justify-content-center">
+            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
+          </Document>
+        </Row>
+      </Container>
     </div>
   );
-}
+};
+
+export default Resume1;

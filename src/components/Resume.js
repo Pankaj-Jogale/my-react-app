@@ -12,7 +12,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pd
 
 const resumeLink = `https://raw.githubusercontent.com/Pankaj-Jogale/my-react-app/final-portfolio/src/components/Jobresume.pdf`;
 
-const Resume1 = () => {
+const Resume = () => {
   const [width, setWidth] = useState(1200);
 
   useEffect(() => {
@@ -61,4 +61,4 @@ const Resume1 = () => {
   );
 };
 
-export default Resume1;
+export default Resume;

@@ -1,5 +1,6 @@
 import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+// import pdf from "./Jobresume.pdf";
 import pdf from "./Jobresume.pdf";
 import React, { useState, useEffect } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
